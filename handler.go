@@ -8,6 +8,7 @@ import (
 
 func HomeHandler(res http.ResponseWriter, req *http.Request) {
 	fmt.Fprintf(res, "<h1>METRON API IS RUNNING</h1>")
+	_ = GetDataBaseClient()
 }
 
 func createCategoryHandler(res http.ResponseWriter, req *http.Request) {
