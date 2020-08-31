@@ -1,4 +1,4 @@
-package main
+package data
 
 import "time"
 
@@ -9,14 +9,14 @@ const (
 	CREDIT = transactionType("CREDIT")
 )
 
-type transaction struct {
+type Transaction struct {
 	cash            int
 	date            time.Time
 	description     string
 	transactionType *transactionType
 }
 
-type category struct {
+type Category struct {
 	name         string
-	subCateories []*category
+	subCateories []*Category
 }

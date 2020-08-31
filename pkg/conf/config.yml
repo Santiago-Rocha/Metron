@@ -1,0 +1,6 @@
+database:
+  connectionUri: "mongodb://admin2:admin2@ds119020.mlab.com:19020/metrondb"
+  name: "metrondb"
+
+server:
+  port: 8081

@@ -5,12 +5,14 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+
+	"./pkg/api"
 )
 
 func main() {
 	router := mux.NewRouter()
-	router.HandleFunc("/", HomeHandler)
-	router.HandleFunc("/create", createCategoryHandler).Methods("POST")
+	router.HandleFunc("/", api.HomeHandler)
+	router.HandleFunc("/create", api.CreateCategoryHandler).Methods("POST")
 	log.Fatal(http.ListenAndServe(":8081", router))
 
 }
