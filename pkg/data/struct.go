@@ -8,7 +8,7 @@ const (
 	DEBIT  = transactionType("DEBIT")
 	CREDIT = transactionType("CREDIT")
 )
-
+ 
 type Transaction struct {
 	cash            int
 	date            time.Time

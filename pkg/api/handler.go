@@ -14,7 +14,7 @@ func HomeHandler(res http.ResponseWriter, req *http.Request) {
 	_ = db.NewDatastore()
 }
 
-func CreateCategoryHandler(res http.ResponseWriter, req *http.Request) {
+func CreateCategory(res http.ResponseWriter, req *http.Request) {
 	var category data.Category
 	err := json.NewDecoder(req.Body).Decode(&category)
 	if err != nil {

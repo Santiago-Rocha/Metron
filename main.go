@@ -12,7 +12,7 @@ import (
 func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/", api.HomeHandler)
-	router.HandleFunc("/create", api.CreateCategoryHandler).Methods("POST")
+	router.HandleFunc("/create", api.CreateCategory).Methods("POST")
 	log.Fatal(http.ListenAndServe(":8081", router))
 
 }

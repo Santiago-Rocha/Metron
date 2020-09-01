@@ -14,7 +14,10 @@ import (
 type MongoDatastore struct {
 	db      *mongo.Database
 	Session *mongo.Client
-	logger  *logrus.Logger
+}
+
+func (dataStore *MongoDatastore) GetCollection(collection string) *mongo.Collection {
+	return dataStore.db.Collection(collection)
 }
 
 func NewDatastore() *MongoDatastore {
