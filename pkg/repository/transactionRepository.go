@@ -5,26 +5,24 @@ import (
 
 	"../data"
 	"../db"
+	"github.com/sirupsen/logrus"
 )
 
-type transactionRepository struct {
-	dataStore *db.MongoDatastore
+type TransactionRepository struct {
+	*db.MongoDatastore
 }
 
-func (repository *transactionRepository) InsertTransaction(transaction data.Transaction) {
-	repository.createDS()
-	repository.dataStore.GetCollection("transaction").InsertOne(context.TODO(), transaction)
-}
+func (repository *TransactionRepository) Insert(transaction data.Transaction) error {
+	insertedResult, err := repository.GetCollection("transaction").InsertOne(context.TODO(), transaction)
+	if err == nil {
+		logrus.Infoln("Transaction", insertedResult.InsertedID, "inserted in database")
 
-func (repository *transactionRepository) GetTransaction(id string) (data.Transaction, error) {
-	repository.createDS()
-	var transaction data.Transaction
-	err := repository.dataStore.GetCollection("transaction").FindOne(context.TODO(), nil).Decode(&transaction)
-	return transaction, err
-}
-
-func (repository *transactionRepository) createDS() {
-	if repository.dataStore == nil {
-		repository.dataStore = db.NewDatastore()
 	}
+	return err
+}
+
+func (repository *TransactionRepository) GetTransaction(id string) (data.Transaction, error) {
+	var transaction data.Transaction
+	err := repository.GetCollection("transaction").FindOne(context.TODO(), nil).Decode(&transaction)
+	return transaction, err
 }

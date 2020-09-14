@@ -1,5 +1,5 @@
 database:
-  connectionUri: "mongodb://admin2:admin2@ds119020.mlab.com:19020/metrondb"
+  connectionUri: "mongodb://admin2:admin2@ds119020.mlab.com:19020/metrondb?retryWrites=false"
   name: "metrondb"
 
 server:

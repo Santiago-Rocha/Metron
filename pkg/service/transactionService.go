@@ -5,14 +5,14 @@ import (
 	"../repository"
 )
 
-type transactionService struct {
+type TransactionService struct {
 	repository.ItransactionRepository
 }
 
-func (service *transactionService) InsertTransaction(transaction data.Transaction) {
-	service.InsertTransaction(transaction)
+func (service *TransactionService) InsertTransaction(transaction data.Transaction) error {
+	return service.Insert(transaction)
 }
 
-func (service *transactionService) GetTransaction(id string) (data.Transaction, error) {
+func (service *TransactionService) GetTransaction(id string) (data.Transaction, error) {
 	return service.GetTransaction(id)
 }

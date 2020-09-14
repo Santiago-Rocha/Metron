@@ -54,7 +54,7 @@ func connectToMongo(config conf.Configuration) (a *mongo.Database, b *mongo.Clie
 
 	var err error
 	logrus.Info("Creating Session")
-	session, err := mongo.NewClient(options.Client().ApplyURI("mongodb://admin2:admin2@ds119020.mlab.com:19020/metrondb"))
+	session, err := mongo.NewClient(options.Client().ApplyURI(config.Database.ConnectionUri))
 	if err != nil {
 		logrus.Fatal(err)
 	}

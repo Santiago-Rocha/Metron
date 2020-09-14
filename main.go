@@ -10,9 +10,11 @@ import (
 )
 
 func main() {
+	transactionHanlder := ServiceContainer().InjectTransactionController()
 	router := mux.NewRouter()
 	router.HandleFunc("/", api.HomeHandler)
-	router.HandleFunc("/create", api.CreateCategory).Methods("POST")
+	router.HandleFunc("/categroy/create", api.CreateCategory).Methods("POST")
+	router.HandleFunc("/transaction/create", transactionHanlder.CreateTransaction).Methods("POST")
 	log.Fatal(http.ListenAndServe(":8081", router))
 
 }
