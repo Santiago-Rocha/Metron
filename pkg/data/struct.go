@@ -17,9 +17,19 @@ type Transaction struct {
 	Date            primitive.DateTime `json:"date" bson:"date"`
 	Description     string             `json:"description" bson:"description"`
 	TransactionType *transactionType   `json:"transactionType" bson:"transactionType"`
+	Category        primitive.ObjectID `json:"category" bson:"category"`
 }
 
 type Category struct {
-	Name         string
-	SubCateories []*Category
+	Id            primitive.ObjectID `json:"_id,omitempty" bson:"_id,omitempty"`
+	Name          string             `json:"name" bson:"name"`
+	SubCategories map[string]string  `json:"SubCategories" bson:"SubCategories"`
+}
+
+//Set implementation
+type void struct{}
+
+type Options struct {
+	Name       string          `json:"_id,omitempty" bson:"_id,omitempty"`
+	OptionsSet map[string]void `json:"options" bson:"options"`
 }

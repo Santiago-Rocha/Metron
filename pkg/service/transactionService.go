@@ -14,5 +14,5 @@ func (service *TransactionService) InsertTransaction(transaction data.Transactio
 }
 
 func (service *TransactionService) GetTransaction(id string) (data.Transaction, error) {
-	return service.GetTransaction(id)
+	return service.Find(id)
 }

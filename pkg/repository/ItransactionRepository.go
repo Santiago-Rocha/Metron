@@ -6,5 +6,5 @@ import (
 
 type ItransactionRepository interface {
 	Insert(data.Transaction) error
-	GetTransaction(id string) (data.Transaction, error)
+	Find(id string) (data.Transaction, error)
 }

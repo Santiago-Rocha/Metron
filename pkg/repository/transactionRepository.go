@@ -21,7 +21,7 @@ func (repository *TransactionRepository) Insert(transaction data.Transaction) er
 	return err
 }
 
-func (repository *TransactionRepository) GetTransaction(id string) (data.Transaction, error) {
+func (repository *TransactionRepository) Find(id string) (data.Transaction, error) {
 	var transaction data.Transaction
 	err := repository.GetCollection("transaction").FindOne(context.TODO(), nil).Decode(&transaction)
 	return transaction, err
