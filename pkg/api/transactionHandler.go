@@ -14,18 +14,18 @@ type TransactionHandler struct {
 }
 
 func (handler *TransactionHandler) CreateTransaction(res http.ResponseWriter, req *http.Request) {
-	var transaction data.Transaction
-	err := json.NewDecoder(req.Body).Decode(&transaction)
+	var transactionDTO data.TransactionDTO
+	err := json.NewDecoder(req.Body).Decode(&transactionDTO)
 	if err != nil {
 		http.Error(res, err.Error(), http.StatusBadRequest)
 		return
 	}
 
-	err = handler.InsertTransaction(transaction)
+	err = handler.InsertTransaction(transactionDTO)
 	if err != nil {
 		http.Error(res, err.Error(), http.StatusBadRequest)
 		return
 	}
 
-	fmt.Fprintf(res, "txt :%+v", transaction)
+	fmt.Fprintf(res, "txt :%+v", transactionDTO)
 }

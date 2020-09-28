@@ -4,11 +4,11 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-type transactionType string
+type TransactionType string
 
 const (
-	DEBIT  = transactionType("DEBIT")
-	CREDIT = transactionType("CREDIT")
+	DEBIT  = TransactionType("DEBIT")
+	CREDIT = TransactionType("CREDIT")
 )
 
 type Transaction struct {
@@ -16,7 +16,7 @@ type Transaction struct {
 	Cash            int                `json:"cash" bson:"cash"`
 	Date            primitive.DateTime `json:"date" bson:"date"`
 	Description     string             `json:"description" bson:"description"`
-	TransactionType *transactionType   `json:"transactionType" bson:"transactionType"`
+	TransactionType *TransactionType   `json:"transactionType" bson:"transactionType"`
 	Category        primitive.ObjectID `json:"category" bson:"category"`
 }
 

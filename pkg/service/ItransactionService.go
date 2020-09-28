@@ -5,6 +5,6 @@ import (
 )
 
 type ItransactionService interface {
-	InsertTransaction(data.Transaction) error
+	InsertTransaction(data.TransactionDTO) error
 	FindTransaction(id string) (data.Transaction, error)
 }
