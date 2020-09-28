@@ -13,6 +13,6 @@ func (service *CategoryService) InsertCategory(category data.Category) error {
 	return service.Insert(category)
 }
 
-func (service *CategoryService) GetCategory(id string) (data.Category, error) {
+func (service *CategoryService) FindCategory(id string) (data.Category, error) {
 	return service.Find(id)
 }

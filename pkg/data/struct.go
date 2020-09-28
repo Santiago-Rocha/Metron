@@ -26,10 +26,8 @@ type Category struct {
 	SubCategories map[string]string  `json:"SubCategories" bson:"SubCategories"`
 }
 
-//Set implementation
-type void struct{}
-
-type Options struct {
-	Name       string          `json:"_id,omitempty" bson:"_id,omitempty"`
-	OptionsSet map[string]void `json:"options" bson:"options"`
+type Option struct {
+	Id         primitive.ObjectID `json:"_id,omitempty" bson:"_id,omitempty"`
+	Name       string             `json:"name" bson:"name"`
+	OptionsSet []string           `json:"options" bson:"options"`
 }

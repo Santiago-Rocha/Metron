@@ -6,5 +6,5 @@ import (
 
 type IcategoryService interface {
 	InsertCategory(data.Category) error
-	GetCategory(id string) (data.Category, error)
+	FindCategory(id string) (data.Category, error)
 }

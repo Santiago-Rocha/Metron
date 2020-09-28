@@ -13,6 +13,6 @@ func (service *TransactionService) InsertTransaction(transaction data.Transactio
 	return service.Insert(transaction)
 }
 
-func (service *TransactionService) GetTransaction(id string) (data.Transaction, error) {
+func (service *TransactionService) FindTransaction(id string) (data.Transaction, error) {
 	return service.Find(id)
 }

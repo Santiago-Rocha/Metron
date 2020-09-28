@@ -11,7 +11,7 @@ import (
 
 type IServiceContainer interface {
 	InjectTransactionController() api.TransactionHandler
-	InjectCategoryController() api.CategoryHandler
+	InjectOptionController() api.OptionHandler
 }
 
 type kernel struct{}
@@ -26,14 +26,14 @@ func (k *kernel) InjectTransactionController() api.TransactionHandler {
 	return transactionHandler
 }
 
-func (k *kernel) InjectCategoryController() api.CategoryHandler {
+func (k *kernel) InjectOptionController() api.OptionHandler {
 
 	mongoDataStore := db.NewDatastore()
-	categoryRepository := &repository.CategoryRepository{MongoDatastore: mongoDataStore}
-	categoryService := &service.CategoryService{IcategoryRepository: categoryRepository}
-	categoryHandler := api.CategoryHandler{IcategoryService: categoryService}
+	optionRepository := &repository.OptionRepository{MongoDatastore: mongoDataStore}
+	optionService := &service.OptionService{IoptionRepository: optionRepository}
+	optionHandler := api.OptionHandler{IoptionService: optionService}
 
-	return categoryHandler
+	return optionHandler
 }
 
 var (

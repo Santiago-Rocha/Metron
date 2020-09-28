@@ -6,5 +6,5 @@ import (
 
 type ItransactionService interface {
 	InsertTransaction(data.Transaction) error
-	GetTransaction(id string) (data.Transaction, error)
+	FindTransaction(id string) (data.Transaction, error)
 }
